@@ -5,7 +5,6 @@ import dev.arturschwarz.stquotes.Result
 import dev.arturschwarz.stquotes.State
 import dev.arturschwarz.stquotes.data.Quote
 import dev.arturschwarz.stquotes.data.QuotesRepository
-import dev.arturschwarz.stquotes.ui.ScreenViewModel
 import kotlinx.coroutines.launch
 import org.koin.java.KoinJavaComponent.inject
 
