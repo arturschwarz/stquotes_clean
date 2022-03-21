@@ -1,4 +1,4 @@
-package dev.arturschwarz.stquotes.ui
+package dev.arturschwarz.stquotes.viewmodel
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

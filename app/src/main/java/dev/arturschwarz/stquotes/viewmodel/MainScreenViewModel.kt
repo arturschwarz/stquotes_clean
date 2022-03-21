@@ -5,7 +5,7 @@ import dev.arturschwarz.stquotes.Result
 import dev.arturschwarz.stquotes.State
 import dev.arturschwarz.stquotes.data.Quote
 import dev.arturschwarz.stquotes.data.QuotesRepository
-import dev.arturschwarz.stquotes.ui.ScreenViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.java.KoinJavaComponent.inject
 
@@ -22,10 +22,10 @@ class MainScreenViewModel :
     override fun sendViewIntent(intent: ViewIntent) {
         when (intent) {
             ViewIntent.Refresh -> {
-                viewModelScope.launch {
-                    updateViewState {
-                        it.copy(state = State.Loading)
-                    }
+                updateViewState {
+                    it.copy(state = State.Loading)
+                }
+                viewModelScope.launch(Dispatchers.IO) {
                     when (val quotesResult = quotesRepository.getQuotes()) {
                         is Result.Success -> {
                             updateViewState {

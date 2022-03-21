@@ -7,7 +7,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
-import dev.arturschwarz.stquotes.ui.ScreenViewModel
+import dev.arturschwarz.stquotes.viewmodel.ScreenViewModel
 import kotlinx.coroutines.flow.Flow
 
 @Composable

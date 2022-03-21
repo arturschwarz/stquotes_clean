@@ -10,15 +10,13 @@ import kotlinx.coroutines.delay
 
 class QuotesRepository(private val httpClient: HttpClient) {
 
-    suspend fun getQuotes() : Result<List<Quote>> {
+    suspend fun getQuotes(): Result<List<Quote>> {
         return try {
-            var quotes: List<Quote>
-            withContext(Dispatchers.IO) {
-                quotes = httpClient.request<Array<Quote>>("https://strangerthings-quotes.vercel.app/api/quotes/10") {
+            Result.Success(
+                httpClient.request<Array<Quote>>("https://strangerthings-quotes.vercel.app/api/quotes/10") {
                     method = HttpMethod.Get
                 }.toList()
-            }
-            Result.Success(quotes)
+            )
         } catch (e: Exception) {
             Result.Error(exception = e)
         }
